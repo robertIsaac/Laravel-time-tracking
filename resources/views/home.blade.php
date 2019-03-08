@@ -15,6 +15,10 @@
                     @endif
 
                     You are logged in!
+
+                    <div>
+                        <a href="{{ URL::route('log') }}">users log</a>
+                    </div>
                 </div>
             </div>
         </div>
