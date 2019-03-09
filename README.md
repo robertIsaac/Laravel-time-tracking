@@ -1,5 +1,8 @@
 # Laravel-time-tracking
-1. go to http://127.0.0.1:8000/team/create to add the teams _(its not prodected and accessible to anyone with a link to it you can add ->auth() to its route after creating first account)_
-2. register from http://127.0.0.1:8000/register
-3. now it will auto track your logins and logouts
-4. go to http://127.0.0.1:8000/log to track your times
+## ho to use
+1. run `composer install` from your terminal
+2. copy `.env.example` to `.env` and change the variables as needed **most important the database conf**
+3. run `php artisan migrate`
+3. register from http://127.0.0.1:8000/register
+4. now it will auto track your logins and logouts
+5. go to http://127.0.0.1:8000/log to see your times
