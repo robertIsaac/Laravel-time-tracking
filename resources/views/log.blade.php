@@ -12,9 +12,9 @@
                             <div class="form-group row">
                                 <label for="team" class="col-md-4 col-form-label text-md-right">Team</label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-7">
                                     <select id="team" class="form-control" name="team">
-                                        <option value="">select team</option>
+                                        <option value="">all teams</option>
                                         @foreach($teams as $team)
                                             <option
                                                 value="{{$team->id}}" {{ $team_id == $team->id ? 'selected' : '' }}>{{$team->name}}</option>
@@ -26,13 +26,60 @@
                             <div class="form-group row">
                                 <label for="team" class="col-md-4 col-form-label text-md-right">User</label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-7">
                                     <select id="team" class="form-control" name="user">
-                                        <option value="">select User</option>
+                                        <option value="">all users</option>
                                         @foreach($users as $user)
-                                            <option
-                                                value="{{$user->id}}" {{ $user_id == $user->id ? 'selected' : '' }}>{{$user->name}}</option>
+                                            <option value="{{$user->id}}" {{ $user_id == $user->id ? 'selected' : '' }}>
+                                                {{$user->name}}
+                                            </option>
                                         @endforeach
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row form-inline">
+                                <span class="col-md-4 col-form-label text-md-right">Date (yy-ww-dd)</span>
+                                <div class="col-md-7">
+                                    <select id="year" class="form-control mr-md-2 mr-2 mb-2 mb-md-0" name="year"
+                                            title="year">
+                                        <option value="">any year</option>
+                                        @for($i = 1900; $i <= 2100; $i++)
+                                            <option{{ $year == $i ? ' selected' : '' }}>{{$i}}</option>
+                                        @endfor
+                                    </select>
+
+                                    <select id="week" class="form-control mr-md-2 mr-2 mb-2 mb-md-0" name="week">
+                                        <option value="">any week</option>
+                                        @for($i = 1; $i <= 53; $i++)
+                                            <option{{ $week == $i ? ' selected' : '' }}>{{$i}}</option>
+                                        @endfor
+                                    </select>
+
+                                    <select id="day" class="form-control mr-md-2 mr-2 mb-2 mb-md-0" name="day"
+                                            title="day">
+                                        <option value="">any day</option>
+                                        @for($i = 1; $i <= 7; $i++)
+                                            <option{{ $day == $i ? ' selected' : '' }}>{{$i}}</option>
+                                        @endfor
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="current" class="col-md-4 col-form-label text-md-right">or filter by</label>
+
+                                <div class="col-md-7">
+                                    <select id="current" class="form-control" name="current">
+                                        <option value="">none</option>
+                                        <option value="week"{{ $current === 'week' ? ' selected' : '' }}>current week
+                                        </option>
+                                        <option value="month"{{ $current === 'month' ? ' selected' : '' }}>current
+                                            month
+                                        </option>
+                                        <option value="3-months"{{ $current === '3-months' ? ' selected' : '' }}>
+                                            trailing 3 months
+                                        </option>
                                     </select>
                                 </div>
                             </div>
