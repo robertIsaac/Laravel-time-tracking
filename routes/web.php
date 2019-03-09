@@ -19,4 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/log', 'LogController@index')->name('log');
+Route::get('/log', 'LogController@index')->name('log')->middleware('auth');
+Route::get('/team/create', 'TeamController@create')->name('team.create');
+Route::post('/team/store', 'TeamController@store')->name('team.store')->middleware('CheckTeam');

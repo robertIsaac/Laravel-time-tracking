@@ -40,6 +40,27 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="team" class="col-md-4 col-form-label text-md-right">Team</label>
+
+                            <div class="col-md-6">
+                                <select id="team" class="form-control{{ $errors->has('team') ? ' is-invalid' : '' }}"
+                                        name="team_id" required>
+                                    <option value="">select team</option>
+                                    @foreach($teams as $team)
+                                        <option
+                                            value="{{$team->id}}" {{ old('team_id') == $team->id ? 'selected' : '' }}>{{$team->name}}</option>
+                                    @endforeach
+                                </select>
+
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
